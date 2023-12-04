@@ -3,8 +3,20 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+
 trigger:
-- main
+  batch: true
+  branches:
+    exclude:
+    - '*'
+
+pr:
+  branches:
+    include:
+    - '*'
+    
+#trigger:
+#- main
 
 pool:
   vmImage: ubuntu-latest
@@ -17,3 +29,5 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+
